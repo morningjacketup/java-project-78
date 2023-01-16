@@ -25,7 +25,7 @@ public class MapSchema extends BaseSchema {
         addCheck("shape",
                 input -> input instanceof Map
                     && schemas.entrySet().stream().allMatch(e ->
-                    e.getValue().isValid(((Map<?,?>) input).get(e.getKey())))
+                    e.getValue().isValid(((Map<?, ?>) input).get(e.getKey())))
         );
         return this;
     }

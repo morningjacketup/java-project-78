@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StringSchema.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">hexlet.code.schemas</a> &gt; <span class="el_source">StringSchema.java</span></div><h1>StringSchema.java</h1><pre class="source lang-java linenums">package hexlet.code.schemas;
+
+import java.util.function.Predicate;
+
+public class StringSchema extends BaseSchema {
+
+<span class="fc" id="L7">    private boolean required = false;</span>
+
+<span class="fc" id="L9">    public StringSchema() {</span>
+<span class="fc" id="L10">    }</span>
+
+    public BaseSchema required() {
+<span class="fc bfc" id="L13" title="All 4 branches covered.">        addCheck(&quot;required&quot;, input -&gt; input instanceof String &amp;&amp; !((String) input).isEmpty());</span>
+<span class="fc" id="L14">        changeRequiredStatus();</span>
+<span class="fc" id="L15">        return this;</span>
+    }
+
+    public StringSchema minLength(int minLength) {
+<span class="nc bnc" id="L19" title="All 4 branches missed.">        Predicate&lt;?&gt; validation = input -&gt; input instanceof String &amp;&amp; ((String) input).length() &gt;= minLength;</span>
+<span class="nc" id="L20">        addCheck(&quot;contains&quot;, validation);</span>
+<span class="nc" id="L21">        return this;</span>
+    }
+
+    public StringSchema contains(String substring) {
+<span class="pc bpc" id="L25" title="1 of 4 branches missed.">        Predicate&lt;?&gt; validation = input -&gt; input instanceof String &amp;&amp; ((String) input).contains(substring);</span>
+<span class="fc" id="L26">        addCheck(&quot;contains&quot;, validation);</span>
+<span class="fc" id="L27">        return this;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

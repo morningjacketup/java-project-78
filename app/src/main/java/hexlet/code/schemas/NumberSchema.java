@@ -26,8 +26,8 @@ public class NumberSchema extends BaseSchema {
 
     public final NumberSchema range(int start, int end) {
         Predicate<?> validation = input -> input instanceof Integer
-                && (Integer) input >= end
-                && (Integer) input <= start;
+                && (Integer) input <= end
+                && (Integer) input >= start;
         addCheck("range", validation);
         return this;
     }
