@@ -8,7 +8,7 @@ public class BaseSchema {
     private final Map<String, Predicate> checks = new HashMap<>();
     private boolean required = false;
 
-    public void changeRequiredStatus() {
+    public final void changeRequiredStatus() {
         required = true;
     }
 

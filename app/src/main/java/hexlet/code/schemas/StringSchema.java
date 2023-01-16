@@ -9,19 +9,19 @@ public class StringSchema extends BaseSchema {
     public StringSchema() {
     }
 
-    public BaseSchema required() {
+    public final StringSchema required() {
         addCheck("required", input -> input instanceof String && !((String) input).isEmpty());
         changeRequiredStatus();
         return this;
     }
 
-    public StringSchema minLength(int minLength) {
+    public final StringSchema minLength(int minLength) {
         Predicate<?> validation = input -> input instanceof String && ((String) input).length() >= minLength;
         addCheck("minLength", validation);
         return this;
     }
 
-    public StringSchema contains(String substring) {
+    public final StringSchema contains(String substring) {
         Predicate<?> validation = input -> input instanceof String && ((String) input).contains(substring);
         addCheck("contains", validation);
         return this;
