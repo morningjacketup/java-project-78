@@ -17,7 +17,7 @@ public class StringSchema extends BaseSchema {
 
     public StringSchema minLength(int minLength) {
         Predicate<?> validation = input -> input instanceof String && ((String) input).length() >= minLength;
-        addCheck("contains", validation);
+        addCheck("minLength", validation);
         return this;
     }
 

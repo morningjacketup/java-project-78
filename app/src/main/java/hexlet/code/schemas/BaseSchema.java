@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Predicate;
 
-public abstract class BaseSchema {
+public class BaseSchema {
     private final Map<String, Predicate> checks = new HashMap<>();
     private boolean required = false;
 
@@ -23,4 +23,6 @@ public abstract class BaseSchema {
     public final boolean isValid(Object input) {
         return checks.values().stream().allMatch(check -> check.test(input));
     }
+
+
 }
