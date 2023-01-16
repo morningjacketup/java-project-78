@@ -27,6 +27,10 @@ public class ValidatorTests {
         assertThat(schema.isValid("")).isFalse();
         assertThat(schema.isValid(null)).isFalse();
 
+        schema.minLength(5);
+        assertThat(schema.isValid("two")).isFalse();
+        assertThat(schema.isValid("more than five")).isTrue();
+
         assertThat(schema.contains("wh").isValid("what does the fox say")).isTrue();
         assertThat(schema.contains("what").isValid("what does the fox say")).isTrue();
         assertThat(schema.contains("whatthe").isValid("what does the fox say")).isFalse();
