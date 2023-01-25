@@ -26,6 +26,7 @@ public class ValidatorTests {
 
         assertThat(schema.isValid("")).isFalse();
         assertThat(schema.isValid(null)).isFalse();
+        assertThat(schema.isValid(5)).isFalse();
 
         schema.minLength(5);
         assertThat(schema.isValid("two")).isFalse();
@@ -63,7 +64,7 @@ public class ValidatorTests {
     void testMapValidation() {
         MapSchema schema = v.map();
 
-        assertThat(schema.isValid(null));
+        assertThat(schema.isValid(null)).isTrue();
 
         schema.required();
 
@@ -78,6 +79,8 @@ public class ValidatorTests {
         assertThat(schema.isValid(heroes)).isFalse();
         heroes.put("Undead", "Arthas");
         assertThat(schema.isValid(heroes)).isTrue();
+        heroes.put("Orc", "Blademaster");
+        assertThat(schema.isValid(heroes)).isFalse();
     }
 
     @Test
@@ -108,6 +111,5 @@ public class ValidatorTests {
         hero4.put("name", "Chaos Knight");
         hero4.put("level", -5);
         assertThat(schema.isValid(hero4)).isFalse();
-
     }
 }

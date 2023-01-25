@@ -9,26 +9,25 @@ public class NumberSchema extends BaseSchema {
 
     public final NumberSchema required() {
         addCheck("required", input -> input instanceof Integer);
-        changeRequiredStatus();
+        setRequiredStatus();
         return this;
     }
 
     public final NumberSchema positive() {
-        Predicate<?> validation = input -> {
-            if (isRequired() || input instanceof Integer) {
-                return input instanceof Integer && (Integer) input > 0;
-            }
-            return true;
-        };
+        Predicate<?> validation = input -> (Integer) input > 0;
         addCheck("positive", validation);
         return this;
     }
 
     public final NumberSchema range(int start, int end) {
-        Predicate<?> validation = input -> input instanceof Integer
-                && (Integer) input <= end
+        Predicate<?> validation = input -> (Integer) input <= end
                 && (Integer) input >= start;
         addCheck("range", validation);
         return this;
+    }
+
+    @Override
+    public boolean isValidInput(Object input) {
+        return input instanceof Integer;
     }
 }

@@ -10,23 +10,27 @@ public class MapSchema extends BaseSchema {
 
     public final MapSchema required() {
         addCheck("required", input -> input instanceof Map);
-        changeRequiredStatus();
+        setRequiredStatus();
         return this;
     }
 
     public final MapSchema sizeof(int size) {
-        Predicate<?> validation = input -> input instanceof Map
-                && ((Map<?, ?>) input).size() == size;
+        Predicate<?> validation = input -> ((Map<?, ?>) input).size() == size;
         addCheck("size", validation);
         return this;
+
     }
 
     public final MapSchema shape(Map<String, BaseSchema> schemas) {
         addCheck("shape",
-                input -> input instanceof Map
-                    && schemas.entrySet().stream().allMatch(e ->
+                input -> schemas.entrySet().stream().allMatch(e ->
                     e.getValue().isValid(((Map<?, ?>) input).get(e.getKey())))
         );
         return this;
+    }
+
+    @Override
+    public boolean isValidInput(Object input) {
+        return input instanceof Map;
     }
 }
