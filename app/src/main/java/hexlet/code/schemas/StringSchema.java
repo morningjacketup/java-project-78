@@ -26,7 +26,7 @@ public class StringSchema extends BaseSchema {
     }
 
     @Override
-    public boolean isValidInput(Object input) {
+    public final boolean isValidInput(Object input) {
         return input instanceof String;
     }
 }

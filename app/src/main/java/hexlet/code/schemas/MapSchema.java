@@ -30,7 +30,7 @@ public class MapSchema extends BaseSchema {
     }
 
     @Override
-    public boolean isValidInput(Object input) {
+    public final boolean isValidInput(Object input) {
         return input instanceof Map;
     }
 }

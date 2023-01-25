@@ -27,7 +27,7 @@ public class NumberSchema extends BaseSchema {
     }
 
     @Override
-    public boolean isValidInput(Object input) {
+    public final boolean isValidInput(Object input) {
         return input instanceof Integer;
     }
 }
