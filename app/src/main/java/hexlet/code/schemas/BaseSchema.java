@@ -12,8 +12,8 @@ public abstract class BaseSchema {
         return required;
     }
 
-    public final void setRequired(boolean required) {
-        this.required = required;
+    public final void setRequired(boolean requiredStatus) {
+        this.required = requiredStatus;
     }
 
     public final void setRequiredStatusTrue() {
