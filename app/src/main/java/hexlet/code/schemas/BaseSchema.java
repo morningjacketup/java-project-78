@@ -8,13 +8,17 @@ public abstract class BaseSchema {
     private final Map<String, Predicate> checks = new HashMap<>();
     private boolean required = false;
 
-    public final void setRequiredStatus() {
-        required = true;
-    }
-    public final boolean getRequiredStatus() {
+    public boolean isRequired() {
         return required;
     }
 
+    public void setRequired(boolean required) {
+        this.required = required;
+    }
+
+    public final void setRequiredStatusTrue() {
+        required = true;
+    }
     protected final void addCheck(String name, Predicate validate) {
         checks.put(name, validate);
     }

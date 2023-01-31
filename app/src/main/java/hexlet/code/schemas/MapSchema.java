@@ -10,7 +10,7 @@ public class MapSchema extends BaseSchema {
 
     public final MapSchema required() {
         addCheck("required", input -> input instanceof Map);
-        setRequiredStatus();
+        setRequiredStatusTrue();
         return this;
     }
 

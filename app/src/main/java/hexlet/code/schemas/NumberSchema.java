@@ -9,7 +9,7 @@ public class NumberSchema extends BaseSchema {
 
     public final NumberSchema required() {
         addCheck("required", input -> input instanceof Integer);
-        setRequiredStatus();
+        setRequiredStatusTrue();
         return this;
     }
 

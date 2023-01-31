@@ -9,7 +9,7 @@ public class StringSchema extends BaseSchema {
 
     public final StringSchema required() {
         addCheck("required", input -> input instanceof String && !((String) input).isEmpty());
-        setRequiredStatus();
+        setRequiredStatusTrue();
         return this;
     }
 
