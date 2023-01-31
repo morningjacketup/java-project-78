@@ -8,11 +8,11 @@ public abstract class BaseSchema {
     private final Map<String, Predicate> checks = new HashMap<>();
     private boolean required = false;
 
-    public boolean isRequired() {
+    public final boolean isRequired() {
         return required;
     }
 
-    public void setRequired(boolean required) {
+    public final void setRequired(boolean required) {
         this.required = required;
     }
 
